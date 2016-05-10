@@ -61,6 +61,7 @@ private:
   std::size_t m_size;
 };
 
+//compile using g++ ./test2.cpp -std=c++11 -o ./test
 int main( int argc, char* argv[] )
 {
   bag_of_double a;

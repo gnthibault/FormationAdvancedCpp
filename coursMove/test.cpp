@@ -68,6 +68,7 @@ A j(const A& in)
   return std::move(local);
 }
 
+//compile using g++ ./test.cpp -std=c++11 -o ./test
 int main(int argc, char* argv[])
 {
   //Elision total, vive le compilo
@@ -88,9 +89,6 @@ int main(int argc, char* argv[])
   //Mini test que se passe t'il si pas de move assignement ?
   A a0;
   A a4=j(a0);
-
-
-
 
   /*A a;
   {
