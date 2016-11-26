@@ -1,20 +1,4 @@
 #include <iostream>
-#include <cstdlib
-
-/*
-	C++14
-	template<typename F0>
-	auto compose( F0 f0 )
-	{
-		return [f0](auto x) -> decltype(auto) { return f0(x); };
-	};
-
-	template<typename F0, typename... Fs>
-	auto compose( F0 f0, Fs... fs )
-	{
-		return [f0,fs...](auto x) -> decltype(auto) { return f0( compose(fs...)(x) ); };
-	};
-*/
 
 template<typename T>
 T sqr ( T a ) { return a*a; };
