@@ -21,9 +21,21 @@ template<int N> struct truc
   int data[N];
 };
 
+enum class filter {DAUB, ANTON};
+
+template<typename T, typename EnumClass, EnumClass EnumVal>
 struct Test {
-  static constexpr int buff[4] = {1,2,3,4};
+  static constexpr T buff[4] = {1,2,3,4};
 };
+
+//Semi specialization
+template<typename T>
+struct Test<T,filter,filter::DAUB> {
+  static constexpr T buff[4] = {4,3,2,1};
+};
+
+/*template<typename T>
+const T Test<T,filter,filter::DAUB>::buff = {4,3,2,1};*/
 
 //Template parameter in computed at compile time
 truc<factorial(4)> glob;
@@ -38,7 +50,7 @@ int main( int argc, char* argv[] )
 
   //Even array can be evaluated at compile time
   constexpr std::array<int,i> x{1,2,3,4,5,6};
-  std::array<int,x[Test::buff[2]]> y;
+  std::array<int,x[Test<float,filter,filter::DAUB>::buff[2]]> y;
 
   //C++14, good runtime function
   constexpr int j = factorialPerf(8);
